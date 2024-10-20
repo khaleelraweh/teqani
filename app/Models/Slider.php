@@ -111,7 +111,7 @@ class Slider extends Model
     // to get only first one media elemet
     public function firstMedia(): MorphOne
     {
-        return $this->MorphOne(photo::class, 'imageable')->orderBy('file_sort', 'asc');
+        return $this->MorphOne(Photo::class, 'imageable')->orderBy('file_sort', 'asc');
     }
 
 
