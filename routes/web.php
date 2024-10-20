@@ -21,7 +21,7 @@ use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-// Auth::routes(['verify' => true]);
+Auth::routes(['verify' => true]);
 
 //Frontend 
 Route::get('/',         [FrontendController::class, 'index'])->name('frontend.index');
