@@ -72,7 +72,7 @@ class SupervisorController extends Controller
             $manager = new ImageManager(new Driver());
             $file_name = Str::slug($request->username) . '_' . time() .  "." . $image->getClientOriginalExtension();
             $img = $manager->read($request->file('user_image'));
-            $img = $img->resize(370, 246);
+            // $img = $img->resize(370, 246);
             $img->toJpeg(80)->save(base_path('public/assets/supervisors/' . $file_name));
 
 
@@ -151,7 +151,7 @@ class SupervisorController extends Controller
             $manager = new ImageManager(new Driver());
             $file_name = Str::slug($request->username) . '_' . time() .  "." . $image->getClientOriginalExtension();
             $img = $manager->read($request->file('user_image'));
-            $img = $img->resize(370, 246);
+            // $img = $img->resize(370, 246);
             $img->toJpeg(80)->save(base_path('public/assets/supervisors/' . $file_name));
 
 

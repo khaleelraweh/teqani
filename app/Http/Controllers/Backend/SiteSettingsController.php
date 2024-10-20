@@ -53,7 +53,7 @@ class SiteSettingsController extends Controller
             $file_name = Str::slug($request->site_name) . "." . $image->getClientOriginalExtension();
 
             $img = $manager->read($request->file('site_img'));
-            $img = $img->resize(370, 246);
+            // $img = $img->resize(370, 246);
 
             $img->toJpeg(80)->save(base_path('public/assets/site_settings/' . $file_name));
 
