@@ -55,6 +55,9 @@ return [
     'txt_latest_news'                               =>  'آخر الاخبار',
     'txt_latest_news_desc'                          =>  'اكتشف برنامجك المثالي في دوراتنا.',
 
+    'txt_latest_posts'                               =>  'آخر المنشورات',
+    'txt_latest_posts_desc'                          =>  'اكتشف اخر المنشورات التى تم نشرها.',
+
 
     'txt_top_rating_instructuros'                   =>  'المدربون ذوو التصنيف الأعلى',
     'txt_top_rating_instructuros_desc'              =>  'اكتشف برنامجك المثالي في دوراتنا.',

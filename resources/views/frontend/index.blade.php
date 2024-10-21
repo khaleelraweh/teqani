@@ -57,8 +57,8 @@
         <div class="container">
             <div class="section-title">
                 <i class="fa fa-recycle" aria-hidden="true"></i>
-                <h6 class="heading-main">{{ __('transf.txt_latest_news') }}</h6>
-                <span>{{ __('transf.txt_latest_news_desc') }}</span>
+                <h6 class="heading-main">{{ __('transf.txt_latest_posts') }}</h6>
+                <span>{{ __('transf.txt_latest_posts_desc') }}</span>
             </div>
             <div class="row">
                 @foreach ($posts->take(3) as $post)

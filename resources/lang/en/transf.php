@@ -57,6 +57,9 @@ return [
     'txt_latest_news'                               =>  'LATEST NEWS',
     'txt_latest_news_desc'                          =>  'Discover your perfect program in our courses.',
 
+    'txt_latest_posts'                               =>  'LATEST Posts',
+    'txt_latest_posts_desc'                          =>  'Discover latest posts',
+
     'txt_top_rating_instructuros'                   =>  'TOP RATING INSTRUCTORS',
     'txt_top_rating_instructuros_desc'              =>  'Discover your perfect program in our courses.',
 
