@@ -34,7 +34,16 @@ class FrontendController extends Controller
     {
         $page = Page::where('slug->' . app()->getLocale(), $slug)
             ->firstOrFail();
-        return view('frontend.pages', compact('page'));
+
+
+        // Retrieve the latest 3 posts from section 1, excluding the current post
+        $latest_posts = Post::with('photos')
+            ->where('section', 1)
+            ->orderBy('created_at', 'ASC')
+            ->take(3)
+            ->get();
+
+        return view('frontend.pages', compact('page', 'latest_posts'));
     }
 
     public function blog_single($slug)

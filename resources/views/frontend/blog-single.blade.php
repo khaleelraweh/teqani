@@ -40,7 +40,7 @@
             </div>
         </div>
     </div>
-
+    <!-- banner section end -->
 
     <!-- banner section end -->
     <div class="blog-list-main-sec second-demo">
