@@ -168,6 +168,34 @@
 
                     <div class="tab-pane fade" id="Photoalbum" role="tabpanel" aria-labelledby="Photoalbum-tab">
 
+                        <div class="row pt-3">
+                            <div class="col-12">
+                                <label for="images">
+                                    {{ __('panel.image') }} / {{ __('panel.images') }}
+
+                                    <span>
+                                        <br>
+                                        <small> {{ __('panel.best_size') }}</small>
+                                        <br>
+                                        <small>-{{ __('panel.Image_show_in_main_page') }}: 350 * 250</small>
+                                        <br>
+                                        <small>-{{ __('panel.Image_show_in_blog_single') }}: 1920 *
+                                            600</small>
+                                    </span>
+
+                                </label>
+                                <br>
+                                <div class="file-loading">
+                                    <input type="file" name="images[]" id="product_images" class="file-input-overview"
+                                        multiple="multiple">
+
+                                </div>
+                                @error('images')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="tab-pane fade" id="published" role="tabpanel" aria-labelledby="published-tab">
@@ -246,6 +274,16 @@
 @section('script')
     <script>
         $(function() {
+
+            $("#product_images").fileinput({
+                theme: "fa5",
+                maxFileCount: 5,
+                allowedFileTypes: ['image'],
+                showCancel: true,
+                showRemove: false,
+                showUpload: false,
+                overwriteInitial: false
+            });
 
             $('#published_on').pickadate({
                 format: 'yyyy-mm-dd',
