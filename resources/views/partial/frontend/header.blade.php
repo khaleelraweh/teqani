@@ -13,9 +13,9 @@
             <div class="navbar-header">
                 <button type="button" data-toggle="collapse" data-target="#navbar-collapse-1"
                     class="navbar-toggle collapsed"><span class="icon-bar"></span><span class="icon-bar"></span><span
-                        class="icon-bar"></span></button><a href="#" class="navbar-brand"><img
-                        class="img-responsive" src="{{ asset('frontend/assets/images/red-logo.png') }}"
-                        alt="LOGO"></a>
+                        class="icon-bar"></span></button><a href="{{ route('frontend.index') }}"
+                    class="navbar-brand"><img class="img-responsive"
+                        src="{{ asset('frontend/assets/images/red-logo.png') }}" alt="LOGO"></a>
             </div>
             <div id="navbar-collapse-1" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
