@@ -24,8 +24,13 @@
 
                     @foreach ($web_menus->where('section', 1) as $menu)
                         @if (count($menu->appearedChildren) == false)
-                            <li class="dropdown">
+                            {{-- <li class="dropdown">
                                 <a href="{{ $menu->link }}" data-toggle="dropdown" class="dropdown-toggle"
+                                    aria-expanded="false">{{ $menu->title }}</a>
+                            </li> --}}
+
+                            <li>
+                                <a href="{{ $menu->link }}" class="dropdown-toggle"
                                     aria-expanded="false">{{ $menu->title }}</a>
                             </li>
                         @else
