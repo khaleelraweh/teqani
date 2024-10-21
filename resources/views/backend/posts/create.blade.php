@@ -57,7 +57,6 @@
             {{-- enctype used cause we will save images  --}}
             <form action="{{ route('admin.posts.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
-
                 {{-- links of tabs --}}
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     @foreach (config('locales.languages') as $key => $val)

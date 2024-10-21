@@ -94,9 +94,8 @@
             @endif
 
 
-            <form action="{{ route('admin.pages.store') }}" method="post">
+            <form action="{{ route('admin.pages.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
-
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="content-tab" data-bs-toggle="tab" data-bs-target="#content"
