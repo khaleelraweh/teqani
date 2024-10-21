@@ -85,6 +85,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::resource('support_menus', SupportMenuController::class);
 
         // ==============   Pages Tab   ==============  //
+        Route::post('pages/remove-image', [PagesController::class, 'remove_image'])->name('pages.remove_image');
         Route::resource('pages', PagesController::class);
 
 

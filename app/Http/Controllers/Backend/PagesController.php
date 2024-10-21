@@ -8,6 +8,7 @@ use App\Models\Page;
 use App\Models\WebMenu;
 use DateTimeImmutable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
@@ -154,7 +155,6 @@ class PagesController extends Controller
         ]);
     }
 
-
     public function destroy($page)
     {
         if (!auth()->user()->ability('admin', 'delete_pages')) {
@@ -174,5 +174,19 @@ class PagesController extends Controller
             'message' => __('panel.something_was_wrong'),
             'alert-type' => 'danger'
         ]);
+    }
+
+    public function remove_image(Request $request)
+    {
+        if (!auth()->user()->ability('admin', 'delete_pages')) {
+            return redirect('admin/index');
+        }
+        $page = Page::findOrFail($request->page_id);
+        $image = $page->photos()->where('id', $request->image_id)->first();
+        if (File::exists('assets/pages/' . $image->file_name)) {
+            unlink('assets/pages/' . $image->file_name);
+        }
+        $image->delete();
+        return true;
     }
 }

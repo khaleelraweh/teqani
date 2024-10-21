@@ -44,7 +44,7 @@
                 </div>
             @endif
 
-            <form action="{{ route('admin.pages.update', $page->id) }}" method="post">
+            <form action="{{ route('admin.pages.update', $page->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
 
@@ -228,20 +228,6 @@
 @section('script')
     <script>
         $(function() {
-            $('.summernote').summernote({
-                tabSize: 2,
-                height: 200,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'underline', 'clear']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['view', ['fullscreen', 'codeview', 'help']]
-                ]
-            });
-
             $("#course_images").fileinput({
                 theme: "fa5",
                 maxFileCount: 5,
@@ -280,6 +266,21 @@
             }).on('filesorted', function(event, params) {
                 console.log(params.previewId, params.oldIndex, params.newIndex, params.stack);
             });
+        });
+        $(function() {
+            $('.summernote').summernote({
+                tabSize: 2,
+                height: 200,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
 
             $('#published_on').pickadate({
                 format: 'yyyy-mm-dd',
@@ -290,7 +291,6 @@
                 close: 'OK',
                 colseOnSelect: true // Close Upon Selecting a date
             });
-
             var publishedOn = $('#published_on').pickadate(
                 'picker'); // set startdate in the picker to the start date in the #start_date elemet
 
