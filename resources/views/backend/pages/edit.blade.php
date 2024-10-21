@@ -55,6 +55,13 @@
                             aria-selected="true">{{ __('panel.content_tab') }}</button>
                     </li>
 
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="Photoalbum-tab" data-bs-toggle="tab" data-bs-target="#Photoalbum"
+                            type="button" role="tab" aria-controls="Photoalbum"
+                            aria-selected="false">{{ __('panel.Photoalbum_tab') }}
+                        </button>
+                    </li>
+
 
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="published-tab" data-bs-toggle="tab" data-bs-target="#published"
@@ -112,6 +119,34 @@
                             @endforeach
                         </div>
 
+                    </div>
+
+                    <div class="tab-pane fade" id="Photoalbum" role="tabpanel" aria-labelledby="Photoalbum-tab">
+                        <div class="row">
+                            <div class="col-12 pt-4">
+                                <label for="images">{{ __('panel.image') }}/
+                                    {{ __('panel.images') }}
+                                    <span>
+                                        <br>
+                                        <small> {{ __('panel.best_size') }}</small>
+                                        <br>
+                                        <small>-{{ __('panel.Image_show_in_main_page') }}: 350 * 250</small>
+                                        <br>
+                                        <small>-{{ __('panel.Image_show_in_blog_single') }}: 1920 *
+                                            600</small>
+                                    </span>
+
+                                </label>
+                                <br>
+                                <div class="file-loading">
+                                    <input type="file" name="images[]" id="course_images" class="file-input-overview"
+                                        multiple="multiple">
+                                    @error('images')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="tab-pane fade" id="published" role="tabpanel" aria-labelledby="published-tab">
@@ -205,6 +240,45 @@
                     ['insert', ['link', 'picture', 'video']],
                     ['view', ['fullscreen', 'codeview', 'help']]
                 ]
+            });
+
+            $("#course_images").fileinput({
+                theme: "fa5",
+                maxFileCount: 5,
+                allowedFileTypes: ['image'],
+                showCancel: true,
+                showRemove: false,
+                showUpload: false,
+                overwriteInitial: false,
+                // اضافات للتعامل مع الصورة عند التعديل علي احد اقسام المنتجات
+                // delete images from photos and assets/products 
+                // because there are maybe more than one image we will go for each image and show them in the edit page 
+                initialPreview: [
+                    @if ($page->photos()->count() > 0)
+                        @foreach ($page->photos as $media)
+                            "{{ asset('assets/pages/' . $media->file_name) }}",
+                        @endforeach
+                    @endif
+                ],
+                initialPreviewAsData: true,
+                initialPreviewFileType: 'image',
+                initialPreviewConfig: [
+                    @if ($page->photos()->count() > 0)
+                        @foreach ($page->photos as $media)
+                            {
+                                caption: "{{ $media->file_name }}",
+                                size: '{{ $media->file_size }}',
+                                width: "120px",
+                                // url : الراوت المستخدم لحذف الصورة
+                                url: "{{ route('admin.pages.remove_image', ['image_id' => $media->id, 'page_id' => $page->id, '_token' => csrf_token()]) }}",
+                                key: {{ $media->id }}
+                            },
+                        @endforeach
+                    @endif
+
+                ]
+            }).on('filesorted', function(event, params) {
+                console.log(params.previewId, params.oldIndex, params.newIndex, params.stack);
             });
 
             $('#published_on').pickadate({
