@@ -98,6 +98,39 @@
                                     {!! $page->content !!}
                                 </div>
 
+                                <div class="row">
+
+                                    @if ($page->photos != null)
+                                        @foreach ($page->photos as $photo)
+                                            @php
+                                                if ($photo->file_name != null) {
+                                                    $page_image = asset('assets/pages/' . $photo->file_name);
+
+                                                    if (
+                                                        !file_exists(public_path('assets/pages/' . $photo->file_name))
+                                                    ) {
+                                                        $page_image = asset(
+                                                            'image/not_found/item_image_not_found.webp',
+                                                        );
+                                                    }
+                                                } else {
+                                                    $page_image = asset('image/not_found/item_image_not_found.webp');
+                                                }
+                                            @endphp
+
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                <div class="about-content-img">
+                                                    <img src="{{ $page_image }}" class="img-responsive" alt="about-img">
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    @endif
+
+
+
+
+                                </div>
+
                             </div>
 
                             <!-- Blog comment start -->
