@@ -584,6 +584,21 @@ return [
 
     ##############################################################
 
+    // =============  Manage News   ===============//
+    'manage_news'                      => 'Manage News',
+
+    // --------------- News   --------------//
+    'show_news'                        => 'News',
+    'add_new_news'                      => 'Add New News',
+    'edit_existing_news'                => 'Edit Existing News ',
+
+
+    // ........... commons in News   ....... //
+    'news_tags'         => 'News Tags',
+
+
+    ##############################################################
+
     // =============  Manage Card Codes    ===============//
     'manage_card_codes'                      => 'Manage Card Codes',
 
