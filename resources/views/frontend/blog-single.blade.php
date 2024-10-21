@@ -88,7 +88,7 @@
                                             {{ $post->created_at ? \Carbon\Carbon::parse($post->created_at)->translatedFormat('d F Y') : null }}
                                         </li>
                                         <li>{{ __('transf.posted_by') }}: <a
-                                                href="#">{{ $post->users->first()->full_name }}</a></li>
+                                                href="#">{{ $post->users->first()->full_name ?? '' }}</a></li>
                                     </ul>
                                 </div>
                                 <div class="description">
