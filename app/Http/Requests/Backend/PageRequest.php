@@ -30,6 +30,8 @@ class PageRequest extends FormRequest
                         'content.*'     =>  'nullable',
                         'parent_id'     =>  'nullable',
                         'section'       =>  'nullable',
+                        'images'        =>  'required',
+                        'images.*'      =>  'mimes:jpg,jpeg,png,gif,webp|max:3000',
 
                         // used always 
                         'status'             =>  'required',
@@ -49,6 +51,9 @@ class PageRequest extends FormRequest
                         'content.*'         =>   'nullable',
                         'parent_id'         =>   'nullable',
                         'section'           =>   'nullable',
+                        'images'        =>  'required',
+                        'images.*'      =>  'mimes:jpg,jpeg,png,gif,webp|max:3000',
+
 
                         // used always 
                         'status'             =>  'required',
