@@ -166,6 +166,10 @@
 
                     </div>
 
+                    <div class="tab-pane fade" id="Photoalbum" role="tabpanel" aria-labelledby="Photoalbum-tab">
+
+                    </div>
+
                     <div class="tab-pane fade" id="published" role="tabpanel" aria-labelledby="published-tab">
 
                         <div class="row">
@@ -217,9 +221,7 @@
 
                     </div>
 
-                    <div class="tab-pane fade" id="Photoalbum" role="tabpanel" aria-labelledby="Photoalbum-tab">
 
-                    </div>
 
                     <div class="row">
                         <div class="col-md-12">
