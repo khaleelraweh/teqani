@@ -106,6 +106,13 @@
                     </li>
 
                     <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="Photoalbum-tab" data-bs-toggle="tab" data-bs-target="#Photoalbum"
+                            type="button" role="tab" aria-controls="Photoalbum"
+                            aria-selected="false">{{ __('panel.Photoalbum_tab') }}
+                        </button>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
                         <button class="nav-link" id="published-tab" data-bs-toggle="tab" data-bs-target="#published"
                             type="button" role="tab" aria-controls="published"
                             aria-selected="false">{{ __('panel.published_tab') }}
@@ -207,6 +214,10 @@
                                 @enderror
                             </div>
                         </div>
+
+                    </div>
+
+                    <div class="tab-pane fade" id="Photoalbum" role="tabpanel" aria-labelledby="Photoalbum-tab">
 
                     </div>
 

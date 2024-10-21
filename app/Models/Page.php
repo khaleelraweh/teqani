@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Helper\MySlugHelper;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Spatie\Sluggable\HasTranslatableSlug;
 use Spatie\Sluggable\SlugOptions;
@@ -66,5 +68,18 @@ class Page extends Model
     public function status()
     {
         return $this->status ? __('panel.status_active') : __('panel.status_inactive');
+    }
+
+    public function photos(): MorphMany
+    {
+        return $this->morphMany(Photo::class, 'imageable');
+    }
+    public function firstMedia(): MorphOne
+    {
+        return $this->MorphOne(Photo::class, 'imageable')->orderBy('file_sort', 'asc');
+    }
+    public function lastMedia(): MorphOne
+    {
+        return $this->MorphOne(Photo::class, 'imageable')->orderBy('file_sort', 'desc');
     }
 }

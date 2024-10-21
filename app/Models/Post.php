@@ -100,38 +100,26 @@ class Post extends Model
     }
 
 
-    public function courseCategory()
-    {
-        return $this->belongsTo(CourseCategory::class, 'course_category_id', 'id');
-    }
-
 
     public function tags(): MorphToMany
     {
         return $this->morphToMany(Tag::class, 'taggable');
     }
 
-    public function reviews()
-    {
-        return $this->morphMany(Review::class, 'reviewable');
-    }
 
 
     public function photos(): MorphMany
     {
         return $this->morphMany(Photo::class, 'imageable');
     }
-
     public function firstMedia(): MorphOne
     {
         return $this->MorphOne(Photo::class, 'imageable')->orderBy('file_sort', 'asc');
     }
-
     public function lastMedia(): MorphOne
     {
         return $this->MorphOne(Photo::class, 'imageable')->orderBy('file_sort', 'desc');
     }
-
 
     public function users(): MorphToMany
     {

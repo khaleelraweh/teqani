@@ -1,92 +1,89 @@
 @extends('layouts.app')
 
 @section('content')
-
-<section class="py-5 bg-light">
-    <div class="container">
-      <div class="row px-4 px-lg-5 py-lg-4 align-items-center">
-        <div class="col-lg-6">
-          <h1 class="h2 text-uppercase mb-0">{{__('Login')}}</h1>
-        </div>
-        <div class="col-lg-6 text-lg-end">
-        </div>
-      </div>
+    <!-- loader start -->
+    <div class="bookshelf_wrapper">
+        <ul class="books_list">
+            <li class="book_item first"></li>
+            <li class="book_item second"></li>
+            <li class="book_item third"></li>
+            <li class="book_item fourth"></li>
+            <li class="book_item fifth"></li>
+            <li class="book_item sixth"></li>
+        </ul>
+        <div class="shelf"></div>
     </div>
-</section>
+    <!-- loader end -->
 
-<section class="py-5 ">
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <h2 class="h5 text-uppercase mb-3">{{__('Login')}}</h2>
-            
-            <form method="POST" action="{{ route('login') }}">
-                
-                @csrf
-                <div class="row">
 
-                    <div class="col-md-12 mb-3">
-                        <div class="form-group">
-                            <label for="username" class="text-small text-uppercase">{{ __('UserName') }}</label>
-                            <input id="username" type="text" class="form-control form-control-lg @error('username') is-invalid @enderror" name="username" placeholder="Enter Your Name" value="{{ old('username') }}" required autocomplete="username" autofocus>
-                            @error('username')
-                                <span class="invalid-feedback text-danger" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+
+    <!-- banner section start -->
+    <div class="comman-log-in clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-6 col-centered">
+                    <div class="sign-in clearfix">
+                        <div class="title">
+                            <h1>sign in</h1>
                         </div>
-                    </div>
-                    
-                    <div class="col-12 mb-3">
-                        <div class="form-group">
-                            <label for="password" class="text-small text-uppercase">{{ __('Password') }}</label>
-                            <input id="password" type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" placeholder="Enter Your Password" required autocomplete="current-password">
-                            @error('password')
-                                <span class="invalid-feedback text-danger" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                        <!-- contact-social section start -->
+                        <div class="social clearfix">
+                            <ul>
+                                <li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                </li>
+                                <li><a href="#" class="google"><i class="fa fa-google-plus"
+                                            aria-hidden="true"></i></a></li>
+                                <li><a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </li>
+                                <li><a href="#" class="pinterest"><i class="fa fa-pinterest-p"
+                                            aria-hidden="true"></i></a></li>
+                            </ul>
                         </div>
-                    </div>
-                    
-                    <div class="col-lg-6 form-group mb-3">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                            <label class="form-check-label  text-small text-uppercase" for="remember">
-                                {{ __('Remember Me') }}
-                            </label>
+                        <div class="or-line clearfix">
+                            <h3>or</h3>
                         </div>
-                    </div>
-        
-                    <div class="col-12 mb-3">
-                        <div class="form-group d-flex align-item-center justify-content-between flex-wrap">
-                            
-                            <div class="mb-2">
-                                <button type="submit" class="btn btn-dark">
-                                    {{ __('Login') }}
-                                </button>
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link  " href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                 @endif
+                        <form method="POST" action="{{ route('login') }}">
+
+                            @csrf
+                            <div class="sign-in-form clearfix">
+                                <div class="form-group">
+
+                                    <input id="username" type="text"
+                                        class="form-control @error('username') is-invalid @enderror" name="username"
+                                        placeholder="Enter Your Name" value="{{ old('username') }}" required
+                                        autocomplete="username" autofocus id="email">
+                                    @error('username')
+                                        <span class="invalid-feedback text-danger" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <input id="password" type="password"
+                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        placeholder="Enter Your Password" required autocomplete="current-password">
+                                    @error('password')
+                                        <span class="invalid-feedback text-danger" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <p class="condition">
+                                    <a href="{{ route('password.request') }}">Forgot-password</a>
+                                </p>
                             </div>
-                            
-                            @if (Route::has('register'))
-                                <a class="btn btn-secondary mb-2 " href="{{ route('register') }}">
-                                    {{ __('Have\'t an account?') }}
-                                </a>
-                            @endif
+                        </form>
 
-                        </div>
+                        <!-- contact-social section end -->
+                        <a href="#" class="btn btn-default btn-red">sign in</a>
+                        {{-- <button type="submit" class="btn btn-default btn-red">
+                            {{ __('Login') }}
+                        </button> --}}
+                        <p class="have-account">Don’t have an account? <a href="sign-up.html">SIGN up</a></p>
                     </div>
                 </div>
-
-            </form>
+            </div>
         </div>
     </div>
-</section>
-                    
-                
+    <!-- banner section end -->
 @endsection
-
-
