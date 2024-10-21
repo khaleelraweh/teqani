@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        {{-- @include('backend.pages.filter.filter') --}}
+        @include('backend.pages.filter.filter')
 
         <div class="card-body">
 

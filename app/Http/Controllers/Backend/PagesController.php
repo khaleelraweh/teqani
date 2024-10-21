@@ -30,7 +30,7 @@ class PagesController extends Controller
                 $query->where('status', \request()->status);
             })
             ->orderBy(\request()->sort_by ?? 'created_at', \request()->order_by ?? 'desc')
-            ->paginate(\request()->limit_by ?? 10);
+            ->paginate(\request()->limit_by ?? 100);
 
 
 
