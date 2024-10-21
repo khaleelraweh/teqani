@@ -299,6 +299,7 @@ return [
     'categories'                                    =>  'المجموعات',
     'instructors'                                   =>  'المدربون',
     'search'                                        =>  'بحث',
+    'search here'                                   =>  'ابحث هنا',
     'prices'                                        =>  'الاسعار',
     'all'                                           =>  'الكل',
     'free'                                          =>  'مجان',

@@ -296,6 +296,7 @@ return [
     'categories'                                    =>  'Categories',
     'instructors'                                   =>  'Instructors',
     'search'                                        =>  'Search',
+    'search here'                                   =>  'Search here',
     'prices'                                        =>  'Prices',
     'all'                                           =>  'All',
     'free'                                          =>  'Free',

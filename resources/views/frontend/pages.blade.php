@@ -214,10 +214,10 @@
                 <div class="col-lg-3 col-md-4 col-sm-12">
                     <div class="blog-list-widget clearfix">
                         <!-- Search Widget Start -->
-                        <div class="widget-block search-widget clearfix" style="display: none !important;">
-                            <h3 class="widget-title">search</h3>
+                        <div class="widget-block search-widget clearfix">
+                            <h3 class="widget-title">{{ __('transf.search') }}</h3>
                             <div class="search-box">
-                                <input type="text" class="form-control" placeholder="Search here">
+                                <input type="text" class="form-control" placeholder="{{ __('transf.search here') }}">
                                 <a href="#" class="search"><i class="fa fa-search" aria-hidden="true"></i></a>
                             </div>
                         </div>
@@ -228,9 +228,9 @@
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li role="presentation" class="active"><a href="#recent" aria-controls="recent"
-                                            role="tab" data-toggle="tab">Recent Post</a></li>
-                                    <li role="presentation"><a href="#popular" aria-controls="popular" role="tab"
-                                            data-toggle="tab">Popular Post</a></li>
+                                            role="tab" data-toggle="tab">{{ __('transf.recent_posts') }}</a></li>
+                                    {{-- <li role="presentation"><a href="#popular" aria-controls="popular" role="tab"
+                                            data-toggle="tab">Popular Post</a></li> --}}
                                 </ul>
                                 <!-- Tab panes -->
                                 <div class="tab-content">
