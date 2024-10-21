@@ -142,6 +142,33 @@ class PagesController extends Controller
 
         $page->update($input);
 
+        if ($request->hasFile('images') && count($request->images) > 0) {
+
+            $i = $page->photos->count() + 1;
+
+            $images = $request->file('images');
+
+            foreach ($images as $image) {
+                $manager = new ImageManager(new Driver());
+
+                $file_name = $page->slug . '_' . time() . $i . '.' . $image->getClientOriginalExtension();
+                $file_size = $image->getSize();
+                $file_type = $image->getMimeType();
+
+                $img = $manager->read($image);
+                $img->save(base_path('public/assets/pages/' . $file_name));
+
+                $page->photos()->create([
+                    'file_name' => $file_name,
+                    'file_size' => $file_size,
+                    'file_type' => $file_type,
+                    'file_status' => 'true',
+                    'file_sort' => $i,
+                ]);
+                $i++;
+            }
+        }
+
         if ($page) {
             return redirect()->route('admin.pages.index')->with([
                 'message' => __('panel.updated_successfully'),
