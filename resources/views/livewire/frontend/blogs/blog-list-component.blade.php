@@ -224,7 +224,7 @@
                         <!-- Tags Widget Start -->
                         <div class="widget-block tags-widget clearfix">
                             <h3 class="widget-title">
-                                <i class="fa fa-paper-plane-o" aria-hidden="true"></i> tags widget
+                                <i class="fa fa-paper-plane-o" aria-hidden="true"></i> {{ __('transf.tags') }}
                             </h3>
 
                             @foreach ($tags as $tag)
