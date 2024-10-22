@@ -1,5 +1,9 @@
+<?php $rtl = config('locales.languages')[app()->getLocale()]['rtl_support'] == 'rtl' ? '-rtl' : ''; ?>
+{{-- if there is no cookie yet then make it dark else check the cookie value --}}
+<?php $dark = Cookie::get('theme') !== null ? (Cookie::get('theme') == 'dark' ? '-dark' : '') : '-dark'; ?>
+
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="rtl">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir=<?php echo $rtl ? 'rtl' : ''; ?>>
 
 <head>
     <meta charset="utf-8">
@@ -62,15 +66,21 @@
 
     <!-- Bootstrap Css -->
     {{-- <link href="{{asset('backend/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" /> --}}
-    <link href="{{ asset('backend/css/bootstrap-rtl.min.css') }}" id="bootstrap-style" rel="stylesheet"
-        type="text/css" />
+    {{-- <link href="{{ asset('backend/css/bootstrap-rtl.min.css') }}" id="bootstrap-style" rel="stylesheet"
+        type="text/css" /> --}}
+
+    <link href="<?php echo asset('backend/css/bootstrap' . $dark . $rtl . '.min.css'); ?>" id="bootstrap-style" rel="stylesheet" type="text/css">
+
 
     <!-- Icons Css -->
     <link href="{{ asset('backend/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- App Css-->
     {{-- <link href="{{asset('backend/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />  --}}
-    <link href="{{ asset('backend/css/app-rtl.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+    {{-- <link href="{{ asset('backend/css/app-rtl.min.css') }}" id="app-style" rel="stylesheet" type="text/css" /> --}}
+
+    <link href="<?php echo asset('backend/css/app' . $dark . $rtl . '.min.css'); ?>" id="app-style" rel="stylesheet" type="text/css">
+
 
     <style>
         .select2-container {
