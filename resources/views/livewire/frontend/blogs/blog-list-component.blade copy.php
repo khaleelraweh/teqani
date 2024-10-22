@@ -20,65 +20,212 @@
             <div class="row">
                 <div class="col-lg-9 col-md-8 col-sm-12">
                     <div class="blog-list-main-content">
-
-                        @foreach ($posts as $post)
-                            <!-- Blog List Block Start -->
-                            <div class="blog-list-block">
-                                <div class="image clearfix">
-                                    @php
-                                        if (
-                                            $post->photos->first() != null &&
-                                            $post->photos->first()->file_name != null
-                                        ) {
-                                            $post_img = asset('assets/posts/' . $post->photos->first()->file_name);
-
-                                            if (
-                                                !file_exists(
-                                                    public_path('assets/posts/' . $post->photos->first()->file_name),
-                                                )
-                                            ) {
-                                                $post_img = asset('image/not_found/item_image_not_found.webp');
-                                            }
-                                        } else {
-                                            $post_img = asset('image/not_found/item_image_not_found.webp');
-                                        }
-                                    @endphp
-                                    <img src="{{ $post_img }}" class="img-responsive" alt="blog-list-img-1">
+                        <!-- Blog List Block Start -->
+                        <div class="blog-list-block">
+                            <div class="image clearfix">
+                                <img src="assets/images/blog/blog-list-img-1.jpg" class="img-responsive"
+                                    alt="blog-list-img-1">
+                            </div>
+                            <div class="content-detail-blog clearfix">
+                                <p class="heading-main">New Music Video Will Blow</p>
+                                <div class="sub-heading-main">
+                                    <ul>
+                                        <li>Technology</li>
+                                        <li>13 May 2016</li>
+                                        <li>Posted by:
+                                            <a href="#">Admin</a>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <div class="content-detail-blog clearfix">
-                                    <p class="heading-main">{{ $post->title }}</p>
-                                    <div class="sub-heading-main">
+                                <div class="desc">
+                                    <p>It is a long established fact that a reader will be distracted by the readable
+                                        content of a page when looking at its layout. The point of using Lorem Ipsum is
+                                        that
+                                        it has a more-or-less normal distribution of letters, as opposed to using
+                                        'Content
+                                        here, content here', making it look like readable English. Many desktop
+                                        publishing
+                                        packages and web page editors now use Lorem Ipsum as their default model text,
+                                    </p>
+                                    <div class="read-more">
                                         <ul>
-                                            <li>{{ $post->tags->first()->name ?? 'Global' }}</li>
-                                            <li> {{ $post->created_at ? \Carbon\Carbon::parse($post->created_at)->translatedFormat('d F Y') : null }}
+                                            <li>
+                                                <a class="btn btn-default" href="#" role="button">Read More</a>
                                             </li>
-                                            <li>{{ __('transf.posted_by') }}:
-                                                <a href="#">{{ $post->users->first()->full_name ?? '' }}</a>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 18</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-comment-o" aria-hidden="true"></i> 9</a>
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="desc">
-                                        <p>
-                                            {{ $post->description }}
-                                        </p>
-                                        <div class="read-more">
-                                            <ul>
-                                                <li>
-                                                    <a class="btn btn-default"
-                                                        href="{{ route('frontend.blog_single', $post->slug) }}"
-                                                        role="button">Read
-                                                        More</a>
-                                                </li>
-
-                                            </ul>
-                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Blog List Block End -->
+                        <!-- Blog List Block Start -->
+                        <div class="blog-list-block">
+                            <div class="owl-carousel blog-list-slider">
+                                <div class="item">
+                                    <img src="assets/images/blog/blog-list-img-2.jpg" class="img-responsive"
+                                        alt="blog-list-img-2">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/images/blog/blog-list-img-2.jpg" class="img-responsive"
+                                        alt="blog-list-img-2">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/images/blog/blog-list-img-2.jpg" class="img-responsive"
+                                        alt="blog-list-img-2">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/images/blog/blog-list-img-2.jpg" class="img-responsive"
+                                        alt="blog-list-img-2">
+                                </div>
+                            </div>
+                            <!-- <div class="image clearfix">
+                                        <img src="assets/images/blog/blog-list-img-2.jpg" class="img-responsive" alt="blog-list-img-2">
+                                    </div> -->
+                            <div class="content-detail-blog clearfix">
+                                <p class="heading-main">New Music Video Will Blow</p>
+                                <div class="sub-heading-main">
+                                    <ul>
+                                        <li>Technology</li>
+                                        <li>13 May 2016</li>
+                                        <li>Posted by:
+                                            <a href="#">Admin</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="desc">
+                                    <p>It is a long established fact that a reader will be distracted by the readable
+                                        content of a page when looking at its layout. The point of using Lorem Ipsum is
+                                        that
+                                        it has a more-or-less normal distribution of letters, as opposed to using
+                                        'Content
+                                        here, content here', making it look like readable English. Many desktop
+                                        publishing
+                                        packages and web page editors now use Lorem Ipsum as their default model text,
+                                    </p>
+                                    <div class="read-more">
+                                        <ul>
+                                            <li>
+                                                <a class="btn btn-default" href="#" role="button">Read More</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 18</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-comment-o" aria-hidden="true"></i> 9</a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Blog List Block End -->
-                        @endforeach
-
-
+                        </div>
+                        <!-- Blog List Block End -->
+                        <!-- Blog List Block Start -->
+                        <div class="blog-list-block">
+                            <div class="image clearfix">
+                                <iframe src="https://player.vimeo.com/video/260055409"></iframe>
+                                <!-- <p><a href="https://vimeo.com/260055409">Tinariwen (+IO:I) - N&agrave;nnufl&agrave;y</a> from <a href="https://vimeo.com/user16120525">Pilule &amp; Pigeon</a> on <a href="https://vimeo.com">Vimeo</a>.</p> -->
+                            </div>
+                            <div class="content-detail-blog clearfix">
+                                <p class="heading-main">New Music Video Will Blow</p>
+                                <div class="sub-heading-main">
+                                    <ul>
+                                        <li>Technology</li>
+                                        <li>13 May 2016</li>
+                                        <li>Posted by:
+                                            <a href="#">Admin</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="desc">
+                                    <p>It is a long established fact that a reader will be distracted by the readable
+                                        content of a page when looking at its layout. The point of using Lorem Ipsum is
+                                        that
+                                        it has a more-or-less normal distribution of letters, as opposed to using
+                                        'Content
+                                        here, content here', making it look like readable English. Many desktop
+                                        publishing
+                                        packages and web page editors now use Lorem Ipsum as their default model text,
+                                    </p>
+                                    <div class="read-more">
+                                        <ul>
+                                            <li>
+                                                <a class="btn btn-default" href="#" role="button">Read More</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 18</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-comment-o" aria-hidden="true"></i> 9</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Blog List Block End -->
+                        <!-- Blog List Block Start -->
+                        <div class="blog-list-block">
+                            <div class="image clearfix">
+                                <audio controls>
+                                    <source src="johann_sebastian_bach_air.html" type="audio/ogg">
+                                    <source
+                                        src="http://soundbible.com/mp3/Tyrannosaurus Rex Roar-SoundBible.com-807702404.mp3"
+                                        type="audio/mpeg"> Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div class="content-detail-blog clearfix">
+                                <p class="heading-main">New Music Video Will Blow</p>
+                                <div class="sub-heading-main">
+                                    <ul>
+                                        <li>Technology</li>
+                                        <li>13 May 2016</li>
+                                        <li>Posted by:
+                                            <a href="#">Admin</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="desc">
+                                    <p>It is a long established fact that a reader will be distracted by the readable
+                                        content of a page when looking at its layout. The point of using Lorem Ipsum is
+                                        that
+                                        it has a more-or-less normal distribution of letters, as opposed to using
+                                        'Content
+                                        here, content here', making it look like readable English. Many desktop
+                                        publishing
+                                        packages and web page editors now use Lorem Ipsum as their default model text,
+                                    </p>
+                                    <div class="read-more">
+                                        <ul>
+                                            <li>
+                                                <a class="btn btn-default" href="#" role="button">Read
+                                                    More</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 18</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
+                                                    9</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Blog List Block End -->
                         <!-- Pagination Start -->
                         <div class="pagination-main visible-xs visible-sm">
                             <nav aria-label="Page navigation example">
@@ -138,7 +285,8 @@
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li role="presentation" class="active">
-                                        <a href="#recent" aria-controls="recent" role="tab" data-toggle="tab">Recent
+                                        <a href="#recent" aria-controls="recent" role="tab"
+                                            data-toggle="tab">Recent
                                             Post</a>
                                     </li>
                                     <li role="presentation">
@@ -154,8 +302,8 @@
                                         <div class="news-block">
                                             <div class="desc">
                                                 <div class="image">
-                                                    <img class="img-responsive" src="assets/images/blog/news-post-1.jpg"
-                                                        alt="news-post">
+                                                    <img class="img-responsive"
+                                                        src="assets/images/blog/news-post-1.jpg" alt="news-post">
                                                 </div>
                                                 <span>
                                                     <i class="fa fa-clock-o" aria-hidden="true"></i> oct 31,

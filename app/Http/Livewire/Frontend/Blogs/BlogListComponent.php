@@ -17,13 +17,12 @@ class BlogListComponent extends Component
 
     public $slug;
 
-    //To filter by categories choosen 
-    public $categoryInputs = [];
+
 
     public $searchQuery = '';
     public $selectedNames = [];
 
-    protected $queryString = ['categoryInputs', 'searchQuery'];
+    protected $queryString = ['searchQuery'];
 
     public function resetFilters()
     {
