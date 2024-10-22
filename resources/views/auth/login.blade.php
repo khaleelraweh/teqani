@@ -42,44 +42,65 @@
                         <div class="or-line clearfix">
                             <h3>or</h3>
                         </div>
+
                         <form method="POST" action="{{ route('login') }}">
 
                             @csrf
+
                             <div class="sign-in-form clearfix">
                                 <div class="form-group">
-
-                                    <input id="username" type="text"
-                                        class="form-control @error('username') is-invalid @enderror" name="username"
-                                        placeholder="Enter Your Name" value="{{ old('username') }}" required
-                                        autocomplete="username" autofocus id="email">
-                                    @error('username')
-                                        <span class="invalid-feedback text-danger" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                    <div class="form-group">
+                                        <input id="username" type="text"
+                                            class="form-control form-control-lg @error('username') is-invalid @enderror"
+                                            name="username" placeholder="Enter Your Name" value="{{ old('username') }}"
+                                            required autocomplete="username" autofocus id="email">
+                                        @error('username')
+                                            <span class="invalid-feedback text-danger" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                        placeholder="Enter Your Password" required autocomplete="current-password">
-                                    @error('password')
-                                        <span class="invalid-feedback text-danger" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                    <div class="form-group">
+                                        <input id="password" type="password"
+                                            class="form-control form-control-lg @error('password') is-invalid @enderror"
+                                            name="password" placeholder="Enter Your Password" required
+                                            autocomplete="current-password">
+                                        @error('password')
+                                            <span class="invalid-feedback text-danger" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
                                 </div>
-                                <p class="condition">
-                                    <a href="{{ route('password.request') }}">Forgot-password</a>
-                                </p>
-                            </div>
-                        </form>
 
-                        <!-- contact-social section end -->
-                        <a href="#" class="btn btn-default btn-red">sign in</a>
-                        {{-- <button type="submit" class="btn btn-default btn-red">
-                            {{ __('Login') }}
-                        </button> --}}
-                        <p class="have-account">Don’t have an account? <a href="sign-up.html">SIGN up</a></p>
+
+                                @if (Route::has('password.request'))
+                                    <p class="condition">
+                                        <a href="{{ route('password.request') }}">Forgot-password</a>
+                                    </p>
+                                @endif
+                                <div class="col-12 mb-3">
+                                    <div class="form-group d-flex align-item-center justify-content-between flex-wrap">
+                                        <div class="mb-2">
+                                            <button type="submit" class="btn btn-default btn-red" style="width: 100%">
+                                                {{ __('Login') }}
+                                            </button>
+
+                                        </div>
+
+                                        @if (Route::has('register'))
+                                            <p class="have-account">Don’t have an account? <a
+                                                    href="{{ route('register') }}">SIGN up</a></p>
+                                        @endif
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
                     </div>
                 </div>
             </div>
