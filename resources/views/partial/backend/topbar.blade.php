@@ -26,6 +26,12 @@
                 <i class="ri-menu-2-line align-middle"></i>
             </button>
 
+            <a href="{{ route('frontend.index') }}"
+                class=" d-flex align-items-center btn btn-sm px-3 font-size-24 header-item waves-effect"
+                id="vertical-menu-btn" title="واجهة العملاء">
+                <i class="ri-home-wifi-line align-middle  text-success "></i>
+            </a>
+
             <!-- App Search-->
             <form class="app-search d-none d-lg-block">
                 <div class="position-relative">
