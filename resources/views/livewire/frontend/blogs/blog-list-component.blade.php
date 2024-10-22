@@ -96,8 +96,12 @@
                         <div class="widget-block search-widget clearfix">
                             <h3 class="widget-title">search</h3>
                             <div class="search-box">
-                                <input type="text" class="form-control" placeholder="Search here">
-                                <a href="#" class="search">
+                                {{-- <input type="text" class="form-control" placeholder="Search here"> --}}
+
+                                <input wire:model="searchQuery" class="form-control" type="search"
+                                    placeholder="{{ __('transf.search') }}" aria-label="Search">
+
+                                <a href="javascript::void()" class="search">
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                 </a>
                             </div>
