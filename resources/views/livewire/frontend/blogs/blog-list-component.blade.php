@@ -239,13 +239,14 @@
                 </div>
             </div>
             <!-- Pagination Start -->
-            <div class="pagination-main hidden-xs hiddens-sm">
-                <nav aria-label="Page navigation ">
-                    <ul class="pagination">
-                        {!! $posts->appends(request()->all())->onEachSide(3)->links() !!}
-                    </ul>
+
+            <div>
+                <!-- PAGINATION -->
+                <nav class="mb-11" aria-label="Page navigationa">
+                    {!! $posts->appends(request()->all())->onEachSide(3)->links('vendor.pagination.bootstrap-4') !!}
                 </nav>
             </div>
+
             <!-- Pagination End -->
         </div>
     </div>
