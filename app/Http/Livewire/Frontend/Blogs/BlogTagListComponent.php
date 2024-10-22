@@ -8,7 +8,7 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class BlogListComponent extends Component
+class BlogTagListComponent extends Component
 {
     use LivewireAlert;
     use WithPagination;
@@ -18,7 +18,6 @@ class BlogListComponent extends Component
     public $slug;
 
 
-
     public $searchQuery = '';
     public $selectedNames = [];
 
@@ -26,23 +25,41 @@ class BlogListComponent extends Component
 
     public function resetFilters()
     {
+
         $this->searchQuery = '';
         $this->selectedNames = [];
     }
 
+
     public function render()
     {
+        $slug = $this->slug;
+
         $tags = Tag::query()->whereStatus(1)->where('section', 3)->get();
+
         $posts = Post::with('photos');
 
+        $posts = $posts->with('tags')->whereHas('tags', function ($query) use ($slug) {
+            $query->where([
+                'slug->' . app()->getLocale() => $slug,
+                'status' => true
+            ]);
+        });
+
+        // start adding new 
 
         $posts = $posts
             ->when($this->searchQuery, function ($query) {
                 $query->where(function ($subQuery) {
                     $subQuery->where('title', 'LIKE', '%' . $this->searchQuery . '%');
                 });
-            })
-            ->Blog()->active()->paginate($this->paginationLimit);
+            });
+
+
+
+        $posts = $posts->active()
+            ->paginate($this->paginationLimit);
+
 
 
         $total_Posts = Post::query()->Blog()->count();
@@ -50,7 +67,7 @@ class BlogListComponent extends Component
         $recent_posts = Post::with('photos')->Blog()->orderBy('created_at', 'DESC')->take(3)->get();
 
         return view(
-            'livewire.frontend.blogs.blog-list-component',
+            'livewire.frontend.blogs.blog-tag-list-component',
             [
                 'posts'             =>  $posts,
                 'total_Posts'       =>  $total_Posts,
