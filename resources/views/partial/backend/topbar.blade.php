@@ -376,26 +376,41 @@
             <div class="dropdown d-inline-block user-dropdown">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user"
-                        src="{{ asset('backend/images/users/avatar-1.jpg') }}" alt="Header Avatar">
-                    <span class="d-none d-xl-inline-block ms-1">Julia</span>
+                    @php
+                        if (auth()->user()->user_image != null) {
+                            $user_img = asset('assets/users/' . auth()->user()->user_image);
+
+                            if (!file_exists(public_path('assets/users/' . auth()->user()->user_image))) {
+                                $user_img = asset('image/not_found/avator2.webp');
+                            }
+                        } else {
+                            $user_img = asset('image/not_found/avator2.webp');
+                        }
+                    @endphp
+                    <img class="rounded-circle header-profile-user" src="{{ $user_img }}" alt="Header Avatar">
+                    <span class="d-none d-xl-inline-block ms-1">{{ auth()->user()->first_name }}</span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
                     <a class="dropdown-item" href="{{ route('admin.account_settings') }}"><i
                             class="ri-user-line align-middle me-1"></i> {{ __('panel.f_profile') }}</a>
-                    <a class="dropdown-item" href="#"><i class="ri-wallet-2-line align-middle me-1"></i> My
-                        Wallet</a>
-                    <a class="dropdown-item d-block" href="#"><span
-                            class="badge bg-success float-end mt-1">11</span><i
-                            class="ri-settings-2-line align-middle me-1"></i> Settings</a>
-                    <a class="dropdown-item" href="#"><i class="ri-lock-unlock-line align-middle me-1"></i>
-                        Lock screen</a>
+
+
+                    <a class="dropdown-item d-block" href="{{ route('admin.settings.site_main_infos.show') }}">
+                        <i class="ri-settings-2-line align-middle me-1"></i>
+                        {{ __('panel.site_settings') }}
+                    </a>
+
+
+
+
                     <div class="dropdown-divider"></div>
+
                     <a class="dropdown-item text-danger" href="javascript:void(0)"
                         onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i
-                            class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
+                            class="ri-shut-down-line align-middle me-1 text-danger"></i>
+                        {{ __('panel.f_logout') }}</a>
                     <form action="{{ route('logout') }}" method="POST" id="logout-form" class="d-none">
                         @csrf
                     </form>
