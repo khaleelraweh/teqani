@@ -8,6 +8,10 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\App;
+use Carbon\Carbon;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -46,5 +50,15 @@ class AppServiceProvider extends ServiceProvider
             );
             View::share('siteSettings', $siteSettings);
         }
+
+
+        // Start check Locale language 
+        $locale = config('locales.fallback_locale');
+        App::setLocale($locale);
+        Lang::setLocale($locale);
+        Session::put('locale', $locale);
+        Carbon::setLocale($locale);
+
+        // End check locale language 
     }
 }

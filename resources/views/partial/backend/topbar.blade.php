@@ -195,34 +195,25 @@
             <div class="dropdown d-none d-sm-inline-block">
                 <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    <img class="" src="{{ asset('backend/images/flags/us.jpg') }}" alt="Header Language"
+                    {{-- <img class="" src="{{ asset('backend/images/flags/us.jpg') }}" alt="Header Language"
+                        height="16"> --}}
+
+                    <img class="" src="{{ asset('backend/images/flags/' . app()->getLocale() . '.webp') }}"
+                        alt="{{ __('panel.' . config('locales.languages')[app()->getLocale()]['lang']) }}"
                         height="16">
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
 
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="{{ asset('backend/images/flags/spain.jpg') }}" alt="user-image" class="me-1"
-                            height="12"> <span class="align-middle">Spanish</span>
-                    </a>
+                    @foreach (config('locales.languages') as $key => $val)
+                        @if ($key != app()->getLocale())
+                            <a href="{{ route('change.language', $key) }}" class="dropdown-item">
+                                <img src="{{ asset('backend/images/flags/' . $key . '.webp') }}" alt="user-image"
+                                    class="me-1" height="12"> <span
+                                    class="align-middle">{{ __('panel.' . $val['lang']) }}</span>
+                            </a>
+                        @endif
+                    @endforeach
 
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="{{ asset('backend/images/flags/germany.jpg') }}" alt="user-image" class="me-1"
-                            height="12"> <span class="align-middle">German</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="{{ asset('backend/images/flags/italy.jpg') }}" alt="user-image" class="me-1"
-                            height="12"> <span class="align-middle">Italian</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="{{ asset('backend/images/flags/russia.jpg') }}" alt="user-image" class="me-1"
-                            height="12"> <span class="align-middle">Russian</span>
-                    </a>
                 </div>
             </div>
 

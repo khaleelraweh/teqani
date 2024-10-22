@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\BackendController;
 use App\Http\Controllers\Backend\CompanyMenuController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\InstructorController;
+use App\Http\Controllers\Backend\LocaleController;
 use App\Http\Controllers\Backend\MainSliderController;
 use App\Http\Controllers\Backend\PagesController;
 use App\Http\Controllers\Backend\PostController;
@@ -31,6 +32,9 @@ Route::get('/index',    [FrontendController::class, 'index'])->name('frontend.in
 
 Route::get('/pages/{slug}', [FrontendController::class, 'pages'])->name('frontend.pages');
 Route::get('/blog-single/{blog?}', [FrontendController::class, 'blog_single'])->name('frontend.blog_single');
+
+
+Route::get('/change-language/{locale}',     [LocaleController::class, 'switch'])->name('change.language');
 
 
 
