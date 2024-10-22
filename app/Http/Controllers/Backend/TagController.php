@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\TagRequest;
 use App\Models\Tag;
+use DateTimeImmutable;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
@@ -15,7 +16,7 @@ class TagController extends Controller
             return redirect('admin/index');
         }
 
-        $tags = Tag::with('courses')
+        $tags = Tag::query()
             ->when(\request()->keyword != null, function ($query) {
                 $query->search(\request()->keyword);
             })
