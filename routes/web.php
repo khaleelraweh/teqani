@@ -112,5 +112,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
         Route::get('site_setting/site_metas', [SiteSettingsController::class, 'show_meta_informations'])->name('settings.site_meta.show');
         Route::post('site_setting/update_site_meta/{id?}', [SiteSettingsController::class, 'update_meta_informations'])->name('settings.site_meta.update');
+
+        // ==============   Admin Acount Tab   ==============  //
+        Route::get('account_settings', [BackendController::class, 'account_settings'])->name('account_settings');
+        Route::post('admin/remove-image', [BackendController::class, 'remove_image'])->name('remove_image');
+        Route::patch('account_settings', [BackendController::class, 'update_account_settings'])->name('update_account_settings');
     });
 });
