@@ -94,4 +94,17 @@ class BackendController extends Controller
             return true;
         }
     }
+
+
+    public function create_update_theme(Request $request)
+    {
+        $theme = $request->input('theme_choice');
+
+        if ($theme && in_array($theme, ['light', 'dark'])) {
+
+            $cookie = cookie('theme', $theme, 60 * 25 * 365, "/"); // just one year
+        }
+
+        return back()->withCookie($cookie);
+    }
 }

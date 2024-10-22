@@ -121,5 +121,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::get('account_settings', [BackendController::class, 'account_settings'])->name('account_settings');
         Route::post('admin/remove-image', [BackendController::class, 'remove_image'])->name('remove_image');
         Route::patch('account_settings', [BackendController::class, 'update_account_settings'])->name('update_account_settings');
+
+
+        // ==============   Theme Icon To Style Website Ready ==============  //
+        Route::post('/cookie/create/update', [BackendController::class, 'create_update_theme'])->name('create_update_theme');
     });
 });
