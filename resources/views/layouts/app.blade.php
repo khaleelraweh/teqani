@@ -25,7 +25,10 @@
     <!--=== Add By Designer ===-->
     <link href="{{ asset('frontend/assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/assets/fonts/fonts.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/assets/css/owl.carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/assets/css/yamm.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/assets/css/retina.css') }}" rel="stylesheet">
+
     <!-- themify-icons start -->
     <link href="{{ asset('frontend/assets/css/themify-icons.css') }}" rel="stylesheet">
     <!-- === Font Awesome Link ===-->
@@ -71,6 +74,17 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3nzFH5N1sOvuoNTdjrLCXk6nEdRFhmdY&amp;sensor=false"></script>
     <!--=== Windows Phone JS Code Start ===-->
     <script type="text/javascript">
+        document.documentElement.className = "js";
+        var supportsCssVars = function() {
+            var e, t = document.createElement("style");
+            return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS &&
+                    window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode
+                .removeChild(
+                    t), e
+        };
+        supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
+    </script>
+    <script type="text/javascript">
         if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
             var msViewportStyle = document.createElement('style')
             msViewportStyle.appendChild(
@@ -90,6 +104,8 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 
+    @livewireStyles
+
     @yield('style')
 
 </head>
@@ -101,10 +117,7 @@
         <!-- navbar-->
         @include('partial.frontend.header')
 
-
-
         @yield('content')
-
 
         <!-- Footer -->
         @include('partial.frontend.footer')
@@ -193,7 +206,7 @@
     <script src="{{ asset('frontend/assets/js/custom.js') }}"></script>
 
 
-
+    @livewireScripts
     @yield('script')
 
 </body>

@@ -31,6 +31,7 @@ Route::get('/',         [FrontendController::class, 'index'])->name('frontend.in
 Route::get('/index',    [FrontendController::class, 'index'])->name('frontend.index');
 
 Route::get('/pages/{slug}', [FrontendController::class, 'pages'])->name('frontend.pages');
+Route::get('/blog-list/{blog?}', [FrontendController::class, 'blog_list'])->name('frontend.blog_list');
 Route::get('/blog-single/{blog?}', [FrontendController::class, 'blog_single'])->name('frontend.blog_single');
 
 

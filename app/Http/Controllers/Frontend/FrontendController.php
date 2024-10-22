@@ -46,6 +46,11 @@ class FrontendController extends Controller
         return view('frontend.pages', compact('page', 'latest_posts'));
     }
 
+    public function blog_list($slug = null)
+    {
+        return view('frontend.blog-list', compact('slug'));
+    }
+
     public function blog_single($slug)
     {
         $post = Post::with('photos', 'tags')
