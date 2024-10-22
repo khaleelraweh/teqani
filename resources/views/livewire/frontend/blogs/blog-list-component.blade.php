@@ -150,96 +150,62 @@
                                 <!-- Tab panes -->
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane fade in active" id="recent">
-                                        <!-- News Block Start -->
-                                        <div class="news-block">
-                                            <div class="desc">
-                                                <div class="image">
-                                                    <img class="img-responsive" src="assets/images/blog/news-post-1.jpg"
-                                                        alt="news-post">
+
+                                        @foreach ($recent_posts->take(5) as $latest_post)
+                                            <!-- News Block Start -->
+                                            <div class="news-block">
+                                                <div class="desc">
+                                                    <div class="image">
+                                                        @php
+                                                            if (
+                                                                $latest_post->photos->last() != null &&
+                                                                $latest_post->photos->last()->file_name != null
+                                                            ) {
+                                                                $latest_post_img = asset(
+                                                                    'assets/posts/' .
+                                                                        $latest_post->photos->last()->file_name,
+                                                                );
+
+                                                                if (
+                                                                    !file_exists(
+                                                                        public_path(
+                                                                            'assets/posts/' .
+                                                                                $latest_post->photos->last()->file_name,
+                                                                        ),
+                                                                    )
+                                                                ) {
+                                                                    $latest_post_img = asset(
+                                                                        'image/not_found/item_image_not_found.webp',
+                                                                    );
+                                                                }
+                                                            } else {
+                                                                $latest_post_img = asset(
+                                                                    'image/not_found/item_image_not_found.webp',
+                                                                );
+                                                            }
+                                                        @endphp
+                                                        <img class="img-responsive" src="{{ $latest_post_img }}"
+                                                            alt="news-post">
+                                                    </div>
+                                                    <span><i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        {{ $latest_post->created_at ? \Carbon\Carbon::parse($latest_post->created_at)->translatedFormat('d F Y') : null }}
+                                                    </span>
+                                                    <a href="{{ route('frontend.blog_single', $latest_post->slug) }}"
+                                                        class="news-title">{{ $latest_post->title }}</a>
                                                 </div>
-                                                <span>
-                                                    <i class="fa fa-clock-o" aria-hidden="true"></i> oct 31,
-                                                    2018</span>
-                                                <a href="#" class="news-title">Constructing the best-in-class
-                                                    global
-                                                    assets</a>
                                             </div>
-                                        </div>
-                                        <!-- News Block End -->
-                                        <!-- News Block Start -->
-                                        <div class="news-block">
-                                            <div class="desc">
-                                                <div class="image">
-                                                    <img class="img-responsive"
-                                                        src="assets/images/blog/news-post-2.jpg" alt="news-post">
-                                                </div>
-                                                <span>
-                                                    <i class="fa fa-clock-o" aria-hidden="true"></i> oct 31,
-                                                    2018</span>
-                                                <a href="#" class="news-title">Improve sales and opetions
-                                                    production</a>
-                                            </div>
-                                        </div>
-                                        <!-- News Block End -->
-                                        <!-- News Block Start -->
-                                        <div class="news-block">
-                                            <div class="desc">
-                                                <div class="image">
-                                                    <img class="img-responsive"
-                                                        src="assets/images/blog/news-post-3.jpg" alt="news-post">
-                                                </div>
-                                                <span>
-                                                    <i class="fa fa-clock-o" aria-hidden="true"></i> oct 31,
-                                                    2018</span>
-                                                <a href="#" class="news-title">Optimize the supply chain for
-                                                    perfect</a>
-                                            </div>
-                                        </div>
-                                        <!-- News Block End -->
+                                            <!-- News Block End -->
+                                        @endforeach
+
                                     </div>
                                     <div role="tabpanel" class="tab-pane fade" id="popular">...</div>
                                 </div>
                             </div>
                         </div>
                         <!-- News Post Widget End -->
-                        <!-- Simple Category Widget Start -->
-                        <div class="widget-block simple-category-widget clearfix">
-                            <h3 class="widget-title">
-                                <i class="fa fa-paper-plane-o" aria-hidden="true"></i> simple category
-                            </h3>
-                            <ul>
-                                <li>
-                                    <a href="#">Modern ideas</a>
-                                </li>
-                                <li>
-                                    <a href="#">Fast speed</a>
-                                </li>
-                                <li>
-                                    <a href="#">User-oriented</a>
-                                </li>
-                                <li>
-                                    <a href="#">Modern style</a>
-                                </li>
-                                <li>
-                                    <a href="#">World respect</a>
-                                </li>
-                                <li>
-                                    <a href="#">first quality services</a>
-                                </li>
-                                <li>
-                                    <a href="#">Backend coding</a>
-                                </li>
-                                <li>
-                                    <a href="#">Frontend development</a>
-                                </li>
-                                <li>
-                                    <a href="#">Photography</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Simple Category Widget End -->
+
                         <!-- Advertisement Widget Start -->
-                        <div class="widget-block advertisement-widget clearfix">
+                        <div class="widget-block advertisement-widget clearfix" style="display: none;">
                             <h3 class="widget-title">
                                 <i class="fa fa-paper-plane-o" aria-hidden="true"></i> advertisement
                             </h3>
@@ -296,93 +262,8 @@
                             <a href="#">responsive</a>
                         </div>
                         <!-- Tags Widget End -->
-                        <!-- Meta Widget Start -->
-                        <div class="widget-block simple-category-widget clearfix">
-                            <h3 class="widget-title">
-                                <i class="fa fa-paper-plane-o" aria-hidden="true"></i> Meta
-                            </h3>
-                            <ul>
-                                <li>
-                                    <a href="#">Site Admin</a>
-                                </li>
-                                <li>
-                                    <a href="#">Log out</a>
-                                </li>
-                                <li>
-                                    <a href="#">Entries RSS</a>
-                                </li>
-                                <li>
-                                    <a href="#">Comment RSS</a>
-                                </li>
-                                <li>
-                                    <a href="#">WordPress.org</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Meta Widget End -->
-                        <!-- Gallery Widget Start -->
-                        <div class="widget-block gallery-widget">
-                            <h3 class="widget-title">
-                                <i class="fa fa-paper-plane-o" aria-hidden="true"></i> recent work gallery
-                            </h3>
-                            <ul class="gallery-list-img">
-                                <li>
-                                    <a href="#" class="image">
-                                        <img class="img-responsive" src="assets/images/blog/gallery-1.jpg"
-                                            alt="gallery">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="image">
-                                        <img class="img-responsive" src="assets/images/blog/gallery-2.jpg"
-                                            alt="gallery">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="image">
-                                        <img class="img-responsive" src="assets/images/blog/gallery-3.jpg"
-                                            alt="gallery">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="image">
-                                        <img class="img-responsive" src="assets/images/blog/gallery-4.jpg"
-                                            alt="gallery">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="image">
-                                        <img class="img-responsive" src="assets/images/blog/gallery-5.jpg"
-                                            alt="gallery">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="image">
-                                        <img class="img-responsive" src="assets/images/blog/gallery-6.jpg"
-                                            alt="gallery">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="image">
-                                        <img class="img-responsive" src="assets/images/blog/gallery-7.jpg"
-                                            alt="gallery">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="image">
-                                        <img class="img-responsive" src="assets/images/blog/gallery-8.jpg"
-                                            alt="gallery">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="image">
-                                        <img class="img-responsive" src="assets/images/blog/gallery-9.jpg"
-                                            alt="gallery">
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Gallery Widget End -->
+
+
                     </div>
                 </div>
             </div>

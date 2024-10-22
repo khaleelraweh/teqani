@@ -273,7 +273,8 @@
                                                     <span><i class="fa fa-clock-o" aria-hidden="true"></i>
                                                         {{ $latest_post->created_at ? \Carbon\Carbon::parse($latest_post->created_at)->translatedFormat('d F Y') : null }}
                                                     </span>
-                                                    <a href="#" class="news-title">{{ $latest_post->title }}</a>
+                                                    <a href="{{ route('frontend.blog_single', $latest_post->slug) }}"
+                                                        class="news-title">{{ $latest_post->title }}</a>
                                                 </div>
                                             </div>
                                             <!-- News Block End -->
