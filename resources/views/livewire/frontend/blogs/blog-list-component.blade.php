@@ -83,36 +83,7 @@
                         <div class="pagination-main visible-xs visible-sm">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">
-                                            <i class="fa fa-angle-left"></i> Previous</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">1</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">2</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">3</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">4</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">5</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">6</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">7</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">Next
-                                            <i class="fa fa-angle-right"></i>
-                                        </a>
-                                    </li>
+                                    {!! $posts->appends(request()->all())->onEachSide(3)->links() !!}
                                 </ul>
                             </nav>
                         </div>
@@ -269,38 +240,9 @@
             </div>
             <!-- Pagination Start -->
             <div class="pagination-main hidden-xs hiddens-sm">
-                <nav aria-label="Page navigation example">
+                <nav aria-label="Page navigation ">
                     <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#">
-                                <i class="fa fa-angle-right"></i> Previous</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">1</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">3</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">4</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">5</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">6</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">7</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                        </li>
+                        {!! $posts->appends(request()->all())->onEachSide(3)->links() !!}
                     </ul>
                 </nav>
             </div>
