@@ -310,6 +310,7 @@ return [
 
 
     // --------------- Document Archive  --------------//
+    'manage_document_archive'                               =>  'Manage Document Archive',
     'show_document_archives'                               => 'Document Archives',
     'add_new_document_archive'                             => 'New Document Archive',
     'edit_existing_document_archive'                       => 'Edit Existing Document Archive ',
