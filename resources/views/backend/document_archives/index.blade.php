@@ -80,6 +80,12 @@
                                             class="btn btn-primary">
                                             <i class="fa fa-edit"></i>
                                         </a>
+                                        <a href="javascript:void(0);" class="btn btn-success copyButton"
+                                            data-copy-text="download-pdf/{{ $docArchive->doc_archive_attached_file }}"
+                                            title="Copy the link">
+                                            <i class="far fa-copy"></i>
+                                        </a>
+                                        <span class="copyMessage" style="display:none;">{{ __('panel.copied') }}</span>
                                         <a href="javascript:void(0);"
                                             onclick=" if( confirm('{{ __('panel.confirm_delete_message') }}') ){document.getElementById('delete-document-Archives-{{ $docArchive->id }}').submit();}else{return false;}"
                                             class="btn btn-danger">
@@ -115,4 +121,51 @@
 
 
     </div>
+@endsection
+
+@section('script')
+    <style>
+        .copyButton {
+            position: relative;
+        }
+
+        .copyMessage {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            display: none;
+            z-index: 1000;
+            font-size: 12px;
+            width: auto;
+            /* Ensure width fits content */
+            white-space: nowrap;
+            /* Prevents line break to ensure width fits content */
+        }
+    </style>
+
+    <script>
+        document.querySelectorAll(".copyButton").forEach(function(button) {
+            button.addEventListener("click", function(event) {
+                event.preventDefault(); // Prevent form submission
+                var textToCopy = button.getAttribute("data-copy-text"); // Get the dynamic text
+                var tempInput = document.createElement("input");
+                tempInput.value = textToCopy;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+
+                var copyMessage = button.nextElementSibling; // Get the copyMessage span
+                copyMessage.style.display = "inline";
+                setTimeout(function() {
+                    copyMessage.style.display = "none";
+                }, 2000); // Hide the message after 2 seconds
+            });
+        });
+    </script>
 @endsection

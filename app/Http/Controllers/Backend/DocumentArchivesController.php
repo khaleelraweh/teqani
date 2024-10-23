@@ -48,7 +48,8 @@ class DocumentArchivesController extends Controller
 
         $validatedData = $request->validate([
             'doc_archive_name' => 'required|string',
-            'doc_archive_attached_file' => 'nullable|file|mimes:pdf,docx|max:2048', // Validate each file
+            // 'doc_archive_attached_file' => 'nullable|file|mimes:pdf,docx|max:2048', // Validate each file
+            'doc_archive_attached_file' => 'nullable|file|mimes:pdf,docx', // Validate each file
 
         ]);
 
@@ -101,7 +102,8 @@ class DocumentArchivesController extends Controller
 
         $validatedData = $request->validate([
             'doc_archive_name' => 'required|string',
-            'doc_archive_attached_file' => 'nullable|file|mimes:pdf,docx|max:2048', // Validate each file
+            // 'doc_archive_attached_file' => 'nullable|file|mimes:pdf,docx|max:2048', // Validate each file
+            'doc_archive_attached_file' => 'nullable|file|mimes:pdf,docx', // Validate each file
 
         ]);
 
