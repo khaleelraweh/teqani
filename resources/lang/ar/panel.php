@@ -309,6 +309,18 @@ return [
     'post_tag'                          =>  'تاج مقال',
 
 
+    // --------------- Document Archive  --------------//
+    'show_document_archives'                               => 'إرشيف الوثائق',
+    'add_new_document_archive'                             => 'إرشيف مستند جديد',
+    'edit_existing_document_archive'                       => 'تعديل بيانات مستند جديد',
+
+
+    // ........... commons in Archive   ....... //
+    'document_archive_data'                                =>  'بيانات ارشيف مستند',
+    'document_archive_name'                                =>  'إسم ارشيف الوثيقة',
+
+
+
     #################################### Manage Coupon ##########################
     'manage_coupons'                => 'إدارة كوبونات الخصم',
 
@@ -962,6 +974,7 @@ return [
     'desc'                  => 'تنازلي',
     'created_at'            => 'تاريخ الانشاء',
     'published_on'          => 'زمن النشر',
+    'published_by'          =>  'الناشر',
     'author'                => 'الكاتب',
     'id'                    =>  'الرقم',
 

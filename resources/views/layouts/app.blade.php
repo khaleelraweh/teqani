@@ -205,6 +205,10 @@
     <!-- custom -->
     <script src="{{ asset('frontend/assets/js/custom.js') }}"></script>
 
+    <script>
+        $('.dropify').dropify();
+    </script>
+
 
     @livewireScripts
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

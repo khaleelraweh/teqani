@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\AboutInsatatuteController;
 use App\Http\Controllers\Backend\BackendController;
 use App\Http\Controllers\Backend\CompanyMenuController;
 use App\Http\Controllers\Backend\CustomerController;
+use App\Http\Controllers\Backend\DocumentArchivesController;
 use App\Http\Controllers\Backend\InstructorController;
 use App\Http\Controllers\Backend\LocaleController;
 use App\Http\Controllers\Backend\MainSliderController;
@@ -103,6 +104,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         // ==============   Pages Tab   ==============  //
         Route::post('about_instatutes/remove-image', [AboutInsatatuteController::class, 'remove_image'])->name('about_instatutes.remove_image');
         Route::resource('about_instatutes', AboutInsatatuteController::class);
+
+        // ==============   Document Archive Tab   ==============  //
+
+        Route::resource('document_archives', DocumentArchivesController::class);
+
 
 
         // ==============   Site Setting  Tab   ==============  //

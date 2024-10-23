@@ -309,6 +309,18 @@ return [
     'post_tag'                  =>  'Post Tag',
 
 
+    // --------------- Document Archive  --------------//
+    'show_document_archives'                               => 'Document Archives',
+    'add_new_document_archive'                             => 'New Document Archive',
+    'edit_existing_document_archive'                       => 'Edit Existing Document Archive ',
+
+
+    // ........... commons in Archive   ....... //
+    'document_archive_data'                                =>  'Document Archive Data',
+    'document_archive_name'                                =>  'Document Archive Name',
+
+
+
     ##############################################################
 
     // =============  Manage Coupon  ===============//
@@ -990,6 +1002,7 @@ return [
     'desc'                  => 'Descending',
     'created_at'            => 'Created at',
     'published_on'          => 'Published On',
+    'published_by'          =>  'Published by',
     'author'                => 'Author',
     'id'                    => 'ID',
 
