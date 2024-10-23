@@ -110,6 +110,12 @@
 
 
             </div>
+            <div class="row " style="margin-top: 20px;">
+                <div class="col-12 " style="display: flex;justify-content: center;text-align: center">
+                    <a href="{{ route('frontend.blog_list') }}" class="btn btn-primary"
+                        style="padding: 15px 20px;">{{ __('transf.show_all_posts') }}</a>
+                </div>
+            </div>
         </div>
     </div>
     <!-- our latest work sec-2 home-3 end-->

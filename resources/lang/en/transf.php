@@ -235,6 +235,7 @@ return [
     'blog_list'                                         =>  'Blog List',
     'recent_posts'                                      =>  'Recent Posts',
     'tags'                                              =>  'Tags',
+    'show_all_posts'                                    =>  'Show All Posts',
 
     //blog single 
     'btn_share_this_post'                             =>  'Share This Post',

@@ -235,6 +235,7 @@ return [
     'blog_list'                                         =>  'قائمة المدونات',
     'recent_posts'                                      =>  'المقالات الحديثة',
     'tags'                                              =>  'الكلمات مفتاحية',
+    'show_all_posts'                                    =>  'عرض كل المنشورات',
 
     //blog single 
     'btn_share_this_post'                             =>  'مشاركة هذا المقال ',
