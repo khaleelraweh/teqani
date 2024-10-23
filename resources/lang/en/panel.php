@@ -9,6 +9,10 @@ return [
     'menu'                      => 'Menu',
     'crafted_with'              =>  'Crafted with',
     'by_era_team'               =>  'by ERA Team',
+    'total_posts'               =>  'Total Posts',
+    'total_menus'               =>  'Total Menus',
+    'total_supervisors'         =>  'Total Supervisors',
+    'total_admin_pages'         =>  'Total Admin Pages',
 
     ############################ Manage Web Menus #################################
     'manage_menus'              => 'Manage Web Menus',
