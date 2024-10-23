@@ -139,4 +139,29 @@ class DocumentArchivesController extends Controller
             'alert-type' => 'danger'
         ]);
     }
+
+    public function destroy($documentArchive)
+    {
+
+        if (!auth()->user()->ability('admin', 'delete_document_archives')) {
+            return redirect('admin/index');
+        }
+
+        $documentArchive = DocumentArchive::where('id', $documentArchive)->first();
+
+        $documentArchive->deleted_by = auth()->user()->full_name;
+        $documentArchive->save();
+        $documentArchive->delete();
+
+        if ($documentArchive) {
+            return redirect()->route('admin.document_archives.index')->with([
+                'message' => __('panel.deleted_successfully'),
+                'alert-type' => 'success'
+            ]);
+        }
+        return redirect()->route('admin.document_archives.index')->with([
+            'message' => __('panel.something_was_wrong'),
+            'alert-type' => 'danger'
+        ]);
+    }
 }
