@@ -145,33 +145,7 @@
 
                     </div>
 
-                    {{-- <div class="tab-pane fade" id="Photoalbum" role="tabpanel" aria-labelledby="Photoalbum-tab">
-                        <div class="row">
-                            <div class="col-12 pt-4">
-                                <label for="images">{{ __('panel.image') }}/
-                                    {{ __('panel.images') }}
-                                    <span>
-                                        <br>
-                                        <small> {{ __('panel.best_size') }}</small>
-                                        <br>
-                                        <small>-{{ __('panel.Image_show_in_main_page') }}: 350 * 250</small>
-                                        <br>
-                                        <small>-{{ __('panel.Image_show_in_blog_single') }}: 1920 *
-                                            600</small>
-                                    </span>
 
-                                </label>
-                                <br>
-                                <div class="file-loading">
-                                    <input type="file" name="images[]" id="course_images" class="file-input-overview"
-                                        multiple="multiple">
-                                    @error('images')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
 
                     <div class="tab-pane fade" id="published" role="tabpanel" aria-labelledby="published-tab">
                         <div class="row">
