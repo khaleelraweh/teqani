@@ -313,7 +313,7 @@ return [
     'manage_document_archive'                               =>  'إدارة ارشيف الوثائق',
     'show_document_archives'                               => 'إرشيف الوثائق',
     'add_new_document_archive'                             => 'إرشيف مستند جديد',
-    'edit_existing_document_archive'                       => 'تعديل بيانات مستند جديد',
+    'edit_existing_document_archive'                       => 'تعديل بيانات مستند موجود',
 
 
     // ........... commons in Archive   ....... //
