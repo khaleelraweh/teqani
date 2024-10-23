@@ -42,7 +42,7 @@
 
         <div class="card-body">
 
-            {{-- @include('backend.posts.filter.filter') --}}
+            @include('backend.document_archives.filter.filter')
 
 
             <div class="table-responsive">
@@ -99,7 +99,7 @@
                         <tr>
                             <td colspan="6">
                                 <div class="float-right">
-                                    {{-- {!! $documentArchives->appends(request()->all())->links() !!} --}}
+                                    {!! $documentArchives->appends(request()->all())->links() !!}
                                 </div>
                             </td>
                         </tr>
