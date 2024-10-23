@@ -17,9 +17,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('backend/images/favicon.ico') }}">
+    {{-- <link rel="shortcut icon" href="{{ asset('backend/images/favicon.ico') }}"> --}}
+    <link rel="shortcut icon" href="{{ asset('frontend/assets/images/apple-icon-180x180.png') }}">
 
-    <title> Dashboard | {{ config('app.name', 'Laravel') }} - Admin & Dashboard Template </title>
+    <title> {{ __('panel.dashboard') }} | {{ config('app.name', 'Laravel') }} </title>
 
     <!-- Scripts -->
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
