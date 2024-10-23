@@ -37,7 +37,6 @@
             </div>
         </div>
 
-
         <div class="card-body">
             <form action="{{ route('admin.document_archives.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
