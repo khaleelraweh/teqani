@@ -55,6 +55,7 @@
                             <th class="wd-15p border-bottom-0">{{ __('panel.published_on') }}</th>
                             <th class="wd-15p border-bottom-0">{{ __('panel.published_by') }}</th>
                             <th class="wd-15p border-bottom-0">{{ __('panel.status') }}</th>
+                            <th class="wd-15p border-bottom-0">Download pdf</th>
                             <th class="wd-15p border-bottom-0">{{ __('panel.actions') }}</th>
                         </tr>
                     </thead>
@@ -69,6 +70,10 @@
                                 <td>{{ $docArchive->created_at->format('Y-m-d ') }}</td>
                                 <td>{{ $docArchive->created_by }}</td>
                                 <td>{{ $docArchive->status() }}</td>
+                                <td>
+                                    <a href="{{ url('/download-pdf/' . $docArchive->doc_archive_attached_file) }}"
+                                        class="btn btn-primary">Download PDF</a>
+                                </td>
                                 <td>
                                     <div class="btn-group btn-group-sm">
                                         <a href="{{ route('admin.document_archives.edit', $docArchive->id) }}"

@@ -40,6 +40,21 @@ Route::get('/blog-single/{blog?}', [FrontendController::class, 'blog_single'])->
 Route::get('/change-language/{locale}',     [LocaleController::class, 'switch'])->name('change.language');
 
 
+Route::get('/download-pdf/{filename}', function ($filename) {
+    $pathToFile = public_path('assets/document_archives/' . $filename);
+
+    if (!file_exists($pathToFile)) {
+        abort(404, 'File not found');
+    }
+
+    // Customize the download name
+    $downloadName = 'custom_' . $filename;
+
+    return response()->download($pathToFile, $downloadName);
+});
+
+
+
 
 //Backend
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
