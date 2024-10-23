@@ -44,7 +44,7 @@
                 <div class="row">
                     <div class="col-sm-12 col-md-12 pt-3">
                         <label for="doc_archive_name"> {{ __('panel.document_archive_name') }} </label>
-                        <input type="text" id="doc_archive_name" wire:model="doc_archive_name" name="doc_archive_name"
+                        <input type="text" id="doc_archive_name" name="doc_archive_name"
                             value="{{ old('doc_archive_name') }}" class="form-control" placeholder="">
                         @error('doc_archive_name')
                             <span class="text-danger">{{ $message }}</span>
@@ -53,7 +53,7 @@
                 </div>
 
                 <!-- row -->
-                <div class="row" wire:ignore>
+                <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <div class="card">
                             <div class="card-body">
